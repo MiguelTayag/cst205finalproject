@@ -7,10 +7,33 @@
     {{ bootstrap.load_css() }}
     {{ bootstrap.load_js() }}
 
-    <title>Document</title>
+    <title>Weather Searcher</title>
 </head>
 
 <body>
+    <div class="bg-image" style="background-image: url({{ url_for('static', filename='img/weatherbg.jpg') }}); height: 100vh">
+        <div id='containter' class="text-center">
+            <h1> Search a Location!</h1>
+            <p> submitting a location will give you the past, current, or future forcasted weather on that location.</p>
+            <form method="POST" action="/">
+                {{ form.csrf_token }}
+                {{ form.city.label }}
+                {{ form.city(size=31) }}
+                <br>
+                {{ form.state.label }}
+                {{ form.state(size=30) }}
+                <br>
+                {{ form.zip.label }}
+                {{ form.zip(size=26) }}
+                <br>
+                <br>
+                <input type="submit" class="btn btn-primary" value="Submit">
+            </form>     
+        </div>
+    </div>
+    <div class="text-center">
+        <!-- <img  class="rounded w-50" src="{{ url_for('static', filename='images/spotify.jpg') }}"> -->
+    </div>
 </body>
 
 </html>

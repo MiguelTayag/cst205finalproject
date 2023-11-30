@@ -15,16 +15,15 @@
         <div id='containter' class="text-center">
             <h1> Search a Location!</h1>
             <p> submitting a location will give you the past, current, or future forcasted weather on that location.</p>
-            <form method="POST" action="/">
+            <form method="POST" action="/weatherSearcher">
                 {{ form.csrf_token }}
-                {{ form.city.label }}
-                {{ form.city(size=31) }}
+                {{ form.location.label }}
+                {{ form.location(size=31) }}
                 <br>
-                {{ form.state.label }}
-                {{ form.state(size=30) }}
-                <br>
-                {{ form.zip.label }}
-                {{ form.zip(size=26) }}
+                <div style="visibility: {{visibility}}">
+                    {{ form.date.label }}
+                    {{ form.date(size=26) }} 
+                </div>
                 <br>
                 <br>
                 <input type="submit" class="btn btn-primary" value="Submit">

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ bootstrap.load_css() }}
+    {{ bootstrap.load_js() }}
+
+    <title>Results</title>
+</head>
+
+<body>
+    <div class="bg-image" style="background-image: url({{ url_for('static', filename='img/weatherbg.jpg') }}); height: 100vh">
+        <div id='containter' class="text-center">
+            <h1>Here are your Weather Results!</h1>
+            <p></p>
+            {{apiData}}
+        </div>
+    </div>
+    <div class="text-center">
+        <!-- <img  class="rounded w-50" src="{{ url_for('static', filename='images/spotify.jpg') }}"> -->
+    </div>
+</body>
+
+</html>

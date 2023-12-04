@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{ bootstrap.load_css() }}
+    {{ bootstrap.load_js() }}
+    <title>The Weather Report</title>
+    <h1>Here's the Weather for This Location:</h1>
+</head>
+<body>
+    <div class="bg-image" style="background-image: url({{ url_for('static', filename='img/weatherbg.jpg') }}); height: 100vh">
+        <div id='containter' class="text-center">
+            <br>
+            Past weather:
+            <br>
+            <br>
+            Present weather:
+            <br>
+            <br>
+            Future weather:
+            <br>
+            <br>
+        </div>
+    </div>
+</body>
+</html>

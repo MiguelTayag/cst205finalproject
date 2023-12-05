@@ -77,19 +77,21 @@ def main():
         print('Validated')
         print(f'Location: {form.location.data}')
         global location
+        global dateChosen
+        dateChosen = form.date.data
         location = form.location.data
         return redirect('/weatherResults')
     return render_template('temp.html', form=form, visibility = visibility)
 
 @app.route('/weatherResults')
 def results():
+    apiString = endpoints[typeChosen] + location + '&apikey=' + apiKey
+    global apiData
+    apiData = readAPI(apiString)
     if(typeChosen == 'Real Time'):
-        apiString = endpoints[typeChosen] + location + '&apikey=' + apiKey
-        global apiData
-        apiData = readAPI(apiString)
+        return render_template ('result.html', apiData = apiData)
     else:
-        visibility = 'visible'
-    return render_template ('result.html', apiData = apiData)
+        return render_template ('result.html', apiData = apiData['timelines']['daily']['time'] == (dateChosen + 'T14:00:00Z'))
 
 
     # class Playlist(FlaskForm):

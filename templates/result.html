@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="max-height: 100vh">
 
 <head>
     <meta charset="utf-8">
@@ -11,15 +11,49 @@
 </head>
 
 <body>
-    <div class="bg-image" style="background-image: url({{ url_for('static', filename='img/weatherbg.jpg') }}); height: 100vh">
+    <div class="bg-image" style="background-image: url({{ url_for('static', filename='img/weatherbg.jpg') }}); height: 100vh; background-repeat: repeat; background-attachment: fixed;">
         <div id='containter' class="text-center">
             <h1>Here are your Weather Results!</h1>
-            <p></p>
-            {{apiData}}
+            <h3>Location: {{location}}
+                <br>
+                Date: {{dateChosen}}
+            </h3>
+            <div class="text-center">
+                {% if typeChosen == 'Real Time' %}
+                    Real Time Weather Code:
+                    <img src="/static/img/{{weatherCodeImg}}">
+                {% else %}
+                    Weather Code Min:
+                    <img src="/static/img/{{weatherCodeMinImg}}">
+                    <br>
+                    Weather Code Max: 
+                    <img src="/static/img/{{weatherCodeMinImg}}">
+                {% endif %}
+                
+
+            </div>
+            <div class="container">
+                <table class="table table-fixed">
+                  <thead>
+                    <tr>
+                      <th class="col-xs-3">Key</th>
+                      <th class="col-xs-3">Value</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for data in apiData: %}
+                        <tr>
+                            <td class="col-xs-3">{{data}}</td>
+                            <td class="col-xs-3">{{apiData[data]}}</td>
+                        </tr>
+                        {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            
         </div>
     </div>
     <div class="text-center">
-        <!-- <img  class="rounded w-50" src="{{ url_for('static', filename='images/spotify.jpg') }}"> -->
     </div>
 </body>
 

@@ -14,7 +14,7 @@
     <div class="bg-image" style="background-image: url({{ url_for('static', filename='img/weatherbg.jpg') }}); height: 100vh">
         <div id='containter' class="text-center">
             <h1> Search a Location!</h1>
-            <p> submitting a location will give you the past, current, or future forcasted weather on that location.</p>
+            <p> Submitting a location will give you the past, current, or future forcasted weather on that location.</p>
             <form method="POST" action="/">
                 {{ form.csrf_token }}
                 {{ form.city.label }}

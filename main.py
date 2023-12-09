@@ -55,5 +55,5 @@ def main():
 
 @app.route('/weather')
 def display():
-    return render_template('weathertemp.html')
+    return render_template('weathertemp.html', data = data)
 #Want to get fire, lightning, precipitation, wind speed info

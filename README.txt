@@ -40,6 +40,12 @@ Future work:
         a clear night. (Still technically correct since it means that the skies are clear)
 
     Data Display:
-        Could probably make the way that the Data is presented more presentable as well as different explanations of the different
-        keys.
+        Could probably make the way that the Data more presentable
+        Different explanations of the different weather keys.
+
+    Misc:
+        Activities to do depending on the current weather.
+            Ex: Hot / Sunny : Go to the beach.
+                Cloudy : Board Games, Painting, etc..
+
 

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Weather Search About Page</title>
+    {{bootstrap.load_css()}}
+   
+</head>
+<body>
+
+    {% extends 'base.html' %}
+
+    {% block content %}
+
+    <div class = "text-center">
+        <div class="titleContainer">
+            <h1 class="pageTitles">About Us</h1>
+        </div>
+    </div>  
+
+        <div class = "text-center">
+            <div class="pageTextContainer">
+                Our names are Ryan Hopper, Miguel Tayag, Oliva Avalos, and Kenia Munoz-Ordaz.
+                <br>
+                We are all students at CSU (California State University) Monterey Bay taking a class called CST 205.
+                <br>
+                This website is made to track past, present, and future weather to make it easier to see climate patterns and study climate change.
+            </div>
+        </div>
+    {% endblock %}   
+</body>
+</html>

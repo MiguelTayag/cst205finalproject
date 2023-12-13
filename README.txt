@@ -1,7 +1,7 @@
 README file
 
 Name of project: 
-    Weather Searcher Application
+    Forecast Finder
 
 Names of team members:
     Miguel Tayag

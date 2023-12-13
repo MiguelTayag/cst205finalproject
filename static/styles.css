@@ -1,0 +1,84 @@
+#homeTitle{
+    text-align: center;
+    color:white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 60px;
+}
+
+.text-container{
+    background-color: #4682A9;
+    color:white;
+    border-radius: 10px;
+    padding: 20px;
+    margin:20px;
+    display: inline-block;
+}
+
+.homeDes{
+    text-align: left;
+}
+
+.titleContainer{
+    /* background-color: #749BC2; */
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    /* display: inline-block; */
+    text-align: center;
+}
+
+.pageTextContainer{
+    background-color: #F6F4EB;
+    color: black;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    display: inline-flexbox;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+
+.pageTitles{
+    color:#FFF4F4;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+}
+
+.center-container{
+    text-align: center;
+}
+
+body{
+    background-image: url('/static/img/weatherbg.jpg');
+    background-size: cover;
+}
+
+#line{
+    border: 2px solid #4682A9;
+}
+
+#resultBox{
+    background-color: white;
+}
+
+.mainContainer {
+    display:flex; justify-content:center;
+    background-color: aliceblue;
+}
+
+.homeDes, .homeImg {
+    padding: 10px;
+
+}
+
+#homeImage{
+    border-radius:50px;
+    width:400px;
+    height:350px;
+}
+
+.homeDes{
+    width: 30%;
+}

@@ -1,5 +1,5 @@
 # CST205 - Multimedia
-# Weather Searcher Application
+# Forecast Finder
 # Authors: Miguel Tayag, Ryan Hopper, Kenia Munoz-Ordaz, Oliva Avalos 
 
 # Sources:
@@ -75,7 +75,7 @@ class WeatherForm(FlaskForm):
     )
 
 
-@app.route('/', methods=('GET', 'POST'))
+@app.route('/type-searcher', methods=('GET', 'POST'))
 def typeSearcher():
     form = TypeForm()
     if request.method == "POST":
@@ -121,7 +121,8 @@ def results():
         # pick image based off weatherCode
         weatherCodeImg = real_time_wc(apiData)
         print(f"passing in {weatherCodeImg}")
-        return render_template ('result.html', apiData = apiData,location=location,dateChosen=dateChosen,image_info=image_info,typeChosen=typeChosen,weatherCodeImg=weatherCodeImg)
+        return render_template ('result.html', apiData = apiData,location=location,dateChosen=dateChosen,
+        image_info=image_info,typeChosen=typeChosen,weatherCodeImg=weatherCodeImg)
     elif(typeChosen == 'History'):
         apiData = apiData['timelines']['daily'] 
         for data in apiData:
@@ -129,7 +130,8 @@ def results():
                 apiData = data['values']
         weatherCodeMinImg = min_wc(apiData)
         weatherCodeMaxImg = max_wc(apiData)
-        return render_template ('result.html', apiData = apiData, location = location, dateChosen = prevDate, image_info=image_info, typeChosen=typeChosen,weatherCodeMaxImg=weatherCodeMaxImg, weatherCodeMinImg=weatherCodeMinImg)
+        return render_template ('result.html', apiData = apiData, location = location, dateChosen = prevDate,
+         image_info=image_info, typeChosen=typeChosen,weatherCodeMaxImg=weatherCodeMaxImg, weatherCodeMinImg=weatherCodeMinImg)
     else:
         print(f"date: {dateChosen.strftime('%Y-%m-%d')}")
         apiData = apiData['timelines']['daily'] 
@@ -138,7 +140,8 @@ def results():
                 apiData = data['values']
         weatherCodeMinImg = min_wc(apiData)
         weatherCodeMaxImg = max_wc(apiData)
-        return render_template ('result.html', apiData = apiData, location = location, dateChosen = dateChosen,image_info=image_info, typeChosen=typeChosen,weatherCodeMaxImg=weatherCodeMaxImg, weatherCodeMinImg=weatherCodeMinImg)
+        return render_template ('result.html', apiData = apiData, location = location, dateChosen = dateChosen,
+        image_info=image_info, typeChosen=typeChosen,weatherCodeMaxImg=weatherCodeMaxImg, weatherCodeMinImg=weatherCodeMinImg)
 
 # pick image based off weatherCode
 def real_time_wc(apiData):
@@ -177,3 +180,20 @@ def max_wc(apiData):
     print(f'code: {weatherCodeMaxImg}')
     return weatherCodeMaxImg
 # ----------------------------------------------------- END OF SECTION (Miguel) -------------------------------------------------------------
+# ------------------------------------------ Ryan Hopper -------------------------------------------------------------
+# includes:
+    # about.html
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+#------------------------------------------ Kenia Munoz-Ordaz -------------------------------------------------------------
+# includes:
+    # home.html
+    # styles.css
+    # styling for all of the other routes..
+@app.route('/')
+def home():
+    return render_template('home.html')
+
+ #------------------------------------------ END OF SECTION (Kenia) -------------------------------------------------------------    

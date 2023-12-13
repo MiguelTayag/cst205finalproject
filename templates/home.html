@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    {{ bootstrap.load_css() }}
+    {{ bootstrap.load_js() }}
+    <title>Home Page</title>
+</head>
+<body>
+
+    {% extends 'base.html' %}
+
+    {% block title %}Home{% endblock %}
+
+    {% block content %}
+   
+<div class="center-container">
+    <div class="text-container">
+        <h1 id="homeTitle"> <b>Forecast Finder</b></h1>
+    </div>
+</div>
+    
+    <div class="mainContainer" class="text-center">
+        <div class="homeDes">
+        <h5>Project Objective: </h5>
+        <p>The objective of our project is to deliver precise information regarding 
+            the weather conditions at a designated location and time. This web application 
+            has been designed to empower users with comprehensive access to weather data.</p>
+
+         <h5>Tomorrow.io API: </h5>  
+         <p> Our project integrates the tomorrow.io API, recognized as one of the foremost free 
+            weather APIs available. Leveraging this robust resource, we successfully implemented 
+            a our weather application. The tomorrow.io API facilitated seamless access to 
+            specific location-based weather data, enabling users to retrieve comprehensive 
+            information for designated dates and
+         </p>
+        </div>
+
+        <div class="homeImg">
+            <img  style=" border: 3px solid black;" id="homeImage" src="/static/img/homeImg.png" alt="home image">
+        </div>
+    </div>
+
+    {% endblock %}
+</body>
+</html>

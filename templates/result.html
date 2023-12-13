@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     {{ bootstrap.load_css() }}
     {{ bootstrap.load_js() }}
 
@@ -11,27 +12,41 @@
 </head>
 
 <body>
-    <div class="bg-image" style="background-image: url({{ url_for('static', filename='img/weatherbg.jpg') }}); height: 100vh; background-repeat: repeat; background-attachment: fixed;">
+
+    {% extends 'base.html' %}
+
+    {% block content %}
+  
         <div id='containter' class="text-center">
-            <h1>Here are your Weather Results!</h1>
-            <h3>Location: {{location}}
-                <br>
-                Date: {{dateChosen}}
-            </h3>
-            <div class="text-center">
+            <div class="titleContainer">
+                <h1 class="pageTitles">{{location}} Weather Results!</h1>
+            </div>
+
+            <div class="pageTextContainer">
+                <h3>Location: {{location}}
+                    <br>
+                    Date: {{dateChosen}}
+                </h3>
+            </div>
+            
+            <br>
+
+            <div class="text-center" id="resultBox">
                 {% if typeChosen == 'Real Time' %}
                     Real Time Weather Code:
-                    <img src="/static/img/{{weatherCodeImg}}">
+                    <img src="/static/img/{{weatherCodeImg}}" style="width: 7%; height: 7%">
                 {% else %}
                     Weather Code Min:
-                    <img src="/static/img/{{weatherCodeMinImg}}">
+                    <img src="/static/img/{{weatherCodeMinImg}}" style="width: 7%; height: 7%">
                     <br>
                     Weather Code Max: 
-                    <img src="/static/img/{{weatherCodeMinImg}}">
+                    <img src="/static/img/{{weatherCodeMinImg}}" style="width: 7%; height: 7%">
                 {% endif %}
                 
-
             </div>
+
+            <br><br>
+
             <div class="container">
                 <table class="table table-fixed">
                   <thead>
@@ -49,12 +64,12 @@
                         {% endfor %}
                   </tbody>
                 </table>
-              </div>
-            
+              </div>  
         </div>
-    </div>
-    <div class="text-center">
-    </div>
+
+        {% endblock %}
+     
+   
 </body>
 
 </html>

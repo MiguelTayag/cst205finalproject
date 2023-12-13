@@ -1,3 +1,9 @@
+# CST205 - Multimedia
+# Weather Searcher Application
+# Authors: Miguel Tayag, Ryan Hopper, Kenia Munoz-Ordaz, Oliva Avalos 
+
+# Sources:
+#   Getting Previous Date: https://www.geeksforgeeks.org/get-yesterdays-date-using-python/#
 from flask import Flask, render_template, flash, redirect, request
 from flask_bootstrap import Bootstrap5
 from flask_wtf import FlaskForm
@@ -11,8 +17,11 @@ from pprint import pprint
 from image_info import image_info
 import os
 
-
-
+# ------------------------------------------ Miguel Tayag -------------------------------------------------------------
+# includes:
+    # result.html
+    # temp.html
+    # typeChoice.html
 
 # create an instance of Flask
 app = Flask(__name__)
@@ -20,12 +29,14 @@ app.config['SECRET_KEY'] = 'csumb-otter'
 bootstrap = Bootstrap5(app)
 global apiKey
 apiKey = "FeJBzzela4w41klzeTQ0rYP056JXSWJX"
+
 # Different API links for different type of Time forecasts
 endpoints = {'Real Time' : "https://api.tomorrow.io/v4/weather/realtime?location=",
             'Forecast' : "https://api.tomorrow.io/v4/weather/forecast?location=",
             'History' : "https://api.tomorrow.io/v4/weather/history/recent?location="
             }
 
+# Getting Previous Date (See Source Above)
 global prevDate
 today = date.today()
 delta = timedelta(days = 1)
@@ -69,6 +80,7 @@ def typeSearcher():
     form = TypeForm()
     if request.method == "POST":
         print('Validated')
+        # global so can be accessed anywhere
         global typeChosen
         typeChosen = form.forecastType.data
         print(f'type chosen: {typeChosen}')
@@ -79,6 +91,7 @@ def typeSearcher():
 def main():
     form = WeatherForm()
     print(typeChosen)
+    # if Real Time or History is picked, don't need to ask for the date
     if(typeChosen == 'Real Time' or typeChosen == 'History'):
         visibility = 'hidden'
     else:
@@ -98,14 +111,14 @@ def results():
     weatherCodeMinImg = ""
     weatherCodeMaxImg = ""
     weatherCodeImg = ""
-
-
-
+    # pick api string depending on typeChosen ('Real Time', 'Forecast', 'History')
     apiString = endpoints[typeChosen] + location + '&apikey=' + apiKey
     global apiData
     apiData = readAPI(apiString)
     if(typeChosen == 'Real Time'):
         apiData = apiData['data']['values']
+
+        # pick image based off weatherCode
         weatherCodeImg = real_time_wc(apiData)
         print(f"passing in {weatherCodeImg}")
         return render_template ('result.html', apiData = apiData,location=location,dateChosen=dateChosen,image_info=image_info,typeChosen=typeChosen,weatherCodeImg=weatherCodeImg)
@@ -127,6 +140,7 @@ def results():
         weatherCodeMaxImg = max_wc(apiData)
         return render_template ('result.html', apiData = apiData, location = location, dateChosen = dateChosen,image_info=image_info, typeChosen=typeChosen,weatherCodeMaxImg=weatherCodeMaxImg, weatherCodeMinImg=weatherCodeMinImg)
 
+# pick image based off weatherCode
 def real_time_wc(apiData):
     weatherCode = ""
     weatherCodeImg = ""
@@ -135,9 +149,11 @@ def real_time_wc(apiData):
         print(f'item: {item} = weatherCode: {weatherCode}.....Results = {weatherCode in item}')
         if (weatherCode in item[:4]):
             weatherCodeImg = item
+            break
     print(f'code: {weatherCodeImg}')
     return weatherCodeImg
 
+# pick image based off weatherCodeMin (For Forecast and History only)
 def min_wc(apiData):
     weatherCodeMin = ""
     weatherCodeMinImg = ""
@@ -145,9 +161,11 @@ def min_wc(apiData):
     for item in image_info:
         if (weatherCodeMin in item[:4]):
             weatherCodeMinImg = item
+            break
     print(f'code: {weatherCodeMinImg}')
     return weatherCodeMinImg
 
+# pick image based off weatherCodeMax (For Forecast and History only)
 def max_wc(apiData):
     weatherCodeMax = ""
     weatherCodeMaxImg = ""
@@ -155,21 +173,7 @@ def max_wc(apiData):
     for item in image_info:
         if (weatherCodeMax in item[:4]):
             weatherCodeMaxImg = item
+            break
     print(f'code: {weatherCodeMaxImg}')
     return weatherCodeMaxImg
-
-
-    # class Playlist(FlaskForm):
-#     song_title = StringField(
-#         'Song Title', 
-#         validators=[DataRequired()]
-#     )
-
-
-# route decorator binds a function to a URL
-# @app.route('/', methods=('GET', 'POST'))
-# def hello():
-#     form = Playlist()
-#     if form.validate_on_submit():
-#         return redirect('/view_playlist')
-#     return render_template('index.html', form=form)
+# ----------------------------------------------------- END OF SECTION (Miguel) -------------------------------------------------------------

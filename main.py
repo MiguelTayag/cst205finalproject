@@ -4,6 +4,7 @@
 
 # Sources:
 #   Getting Previous Date: https://www.geeksforgeeks.org/get-yesterdays-date-using-python/#
+
 from flask import Flask, render_template, flash, redirect, request
 from flask_bootstrap import Bootstrap5
 from flask_wtf import FlaskForm
@@ -180,14 +181,16 @@ def max_wc(apiData):
     print(f'code: {weatherCodeMaxImg}')
     return weatherCodeMaxImg
 # ----------------------------------------------------- END OF SECTION (Miguel) -------------------------------------------------------------
-# ------------------------------------------ Ryan Hopper -------------------------------------------------------------
+
+# ---------------------------------------------------- Ryan Hopper & Oliva Avalos -------------------------------------------------------------
 # includes:
     # about.html
 @app.route('/about')
 def about():
     return render_template('about.html')
+# ----------------------------------------------------- END OF SECTION (Ryan & Oliva) -------------------------------------------------------------
 
-#------------------------------------------ Kenia Munoz-Ordaz -------------------------------------------------------------
+#---------------------------------------------------------- Kenia Munoz-Ordaz -------------------------------------------------------------
 # includes:
     # home.html
     # styles.css

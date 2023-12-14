@@ -47,5 +47,8 @@ Future work:
         Activities to do depending on the current weather.
             Ex: Hot / Sunny : Go to the beach.
                 Cloudy : Board Games, Painting, etc..
-
+******************************************************************************************************************
+Oliva Avalos:
+I worked in the about page, had troubele working in my cst205finalproject folder errors like modules, and flask erros, so I had to work on it on my cst205 file. In the about.html file I cretaed the title, what the app usage is how to use it. I was working on an about the creators but unfortunatly didn't get to finish. The paragraph as well as any other text should be center. Since we had trouble and tried to push our work into github for almost 2hrs. We let Avner know about our issues, letting us know we could comment this. If we had extra time we would have added a wave time to our website. I would have also wanted to add background music to my part of the website as a welcoming beat to it. Since I didn't about the creators if I would have I would have liked to add images of every creator whith a bottom description about themselves as well as how we came out with the idea.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

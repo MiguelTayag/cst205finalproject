@@ -43,18 +43,29 @@ Future work:
         Could probably make the way that the Data more presentable
         Different explanations of the different weather keys.
 
+******************************************************************************************************************
 Future Work (Kenia):
     Data Display: 
         I think for future work we can create a 4th route for our search feature where once the weather is display, 
         Activities will also display depending on the current weather.
             Ex: Hot / Sunny : Go to the beach.
                 Cloudy : Board Games, Painting, etc..
-
-    Weather Code: 
+                
+     Weather Code: 
         Its similar to the activities feature, but we wanted to use a tides api to also display how the tides would be 
         in the data added, (for future and past aswell)
-
+        
         I would also create the key and values display more clear so its more user friendly
+
+******************************************************************************************************************
+Oliva Avalos:
+I worked in the about page, had troubele working in my cst205finalproject folder errors like modules, and flask erros, 
+so I had to work on it on my cst205 file. In the about.html file I cretaed the title, what the app usage is how to use it. 
+I was working on an about the creators but unfortunatly didn't get to finish. The paragraph as well as any other text should be center. 
+Since we had trouble and tried to push our work into github for almost 2hrs. We let Avner know about our issues, letting us know we could comment this.
+If we had extra time we would have added a wave time to our website. I would have also wanted to add background music to my 
+part of the website as a welcoming beat to it. Since I didn't about the creators if I would have I would have liked to add images of 
+every creator whith a bottom description about themselves as well as how we came out with the idea.
 
 ****************************************************************************************************************************
 NOTE: With our group we were having issues with pushing our code to our github repository. We kept getting an issue with 

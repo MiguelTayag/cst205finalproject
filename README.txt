@@ -43,9 +43,21 @@ Future work:
         Could probably make the way that the Data more presentable
         Different explanations of the different weather keys.
 
-    Misc:
-        Activities to do depending on the current weather.
+Future Work (Kenia):
+    Data Display: 
+        I think for future work we can create a 4th route for our search feature where once the weather is display, 
+        Activities will also display depending on the current weather.
             Ex: Hot / Sunny : Go to the beach.
                 Cloudy : Board Games, Painting, etc..
 
+    Weather Code: 
+        Its similar to the activities feature, but we wanted to use a tides api to also display how the tides would be 
+        in the data added, (for future and past aswell)
 
+        I would also create the key and values display more clear so its more user friendly
+
+****************************************************************************************************************************
+NOTE: With our group we were having issues with pushing our code to our github repository. We kept getting an issue with 
+our authentication. So we weren't able to individually push our code. I worked on home.html, throughout the other html templetes 
+adding css. I also created the base.html for our nav bar across the website. 
+****************************************************************************************************************************
